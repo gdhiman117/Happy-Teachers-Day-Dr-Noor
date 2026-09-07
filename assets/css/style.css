@@ -1,0 +1,722 @@
+/* ==========================================================================
+   TEACHER'S DAY TRIBUTE PORTAL — DR. MOHAMMAD FAISAL NOOR (LMTSM)
+   Clean & Focused Design: Student Video Wishes, Direct Fullscreen Playback
+   ========================================================================== */
+
+:root {
+  --lmtsm-crimson: #800020;
+  --lmtsm-crimson-light: #9B1B30;
+  --lmtsm-navy: #0B192C;
+  --lmtsm-navy-light: #16263D;
+  --gold-accent: #E5C378;
+  --gold-glow: #F3D48B;
+  --gold-dark: #C69E45;
+
+  --bg-dark: #070D18;
+  --bg-card: rgba(22, 38, 61, 0.7);
+  --border-card: rgba(229, 195, 120, 0.2);
+  --border-card-hover: rgba(229, 195, 120, 0.55);
+
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-light-muted: #CBD5E1;
+
+  --section-a: #10B981;
+  --section-b: #8B5CF6;
+  --section-c: #0284C7;
+  --section-d: #F43F5E;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+
+  --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Background Lights */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+}
+
+.orb-1 {
+  top: -10%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: var(--lmtsm-crimson-light);
+}
+
+.orb-2 {
+  bottom: 10%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: var(--gold-accent);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top Announcement */
+.top-notice-bar {
+  background: linear-gradient(90deg, #500014, var(--lmtsm-crimson), #500014);
+  color: #FFF;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid rgba(229, 195, 120, 0.3);
+}
+
+/* Site Navigation */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 25, 44, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(229, 195, 120, 0.15);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.nav-logo-box {
+  background: #FFF;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-main {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.brand-sub {
+  font-size: 0.75rem;
+  color: var(--gold-accent);
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  border: none;
+  font-family: var(--font-main);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--lmtsm-crimson-light), var(--lmtsm-crimson));
+  color: #FFF;
+  box-shadow: 0 4px 15px rgba(128, 0, 32, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(128, 0, 32, 0.6);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--gold-glow);
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.hero-center-box {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sir-photo-frame {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  margin: 0 auto 1.25rem;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--gold-glow), var(--lmtsm-crimson), var(--gold-dark));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 24px rgba(229, 195, 120, 0.35);
+}
+
+.sir-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.highlight-gold {
+  color: var(--gold-glow);
+}
+
+.sir-role {
+  color: var(--gold-accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+  color: var(--text-light-muted);
+  font-size: 0.98rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.faculty-badges-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.faculty-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(229, 195, 120, 0.25);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  color: var(--text-light-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.faculty-pill:hover {
+  background: rgba(229, 195, 120, 0.15);
+  border-color: var(--gold-glow);
+  color: #FFF;
+}
+
+.faculty-pill i {
+  color: var(--gold-accent);
+}
+
+.editor-credit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  padding: 0.45rem 1.15rem;
+  background: rgba(128, 0, 32, 0.35);
+  border: 1px solid rgba(229, 195, 120, 0.4);
+  border-radius: 50px;
+  color: var(--gold-glow);
+  font-size: 0.86rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.editor-credit-badge strong {
+  color: #FFF;
+}
+
+/* Videos Section */
+.videos-section {
+  padding: 2.5rem 0 4rem;
+}
+
+.section-head-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Filter Pills */
+.filter-pills-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-light-muted);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.4rem 0.95rem;
+  border-radius: 50px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-main);
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFF;
+}
+
+.filter-btn.active {
+  background: var(--gold-accent);
+  color: #070D18;
+  border-color: var(--gold-glow);
+}
+
+.filter-count {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+}
+
+/* Video Grid (Vertical Reel Proportions) */
+.video-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.video-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card:hover {
+  border-color: var(--border-card-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(229, 195, 120, 0.25);
+}
+
+.card-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 14;
+  background: #000;
+  overflow: hidden;
+}
+
+.card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 40%, rgba(0,0,0,0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.card-top-badges {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-tag-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+.section-pill-a { background: var(--section-a); }
+.section-pill-b { background: var(--section-b); }
+.section-pill-c { background: var(--section-c); }
+.section-pill-d { background: var(--section-d); }
+
+.duration-pill {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #FFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.play-btn-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, var(--gold-glow), var(--gold-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #070D18;
+  font-size: 1.35rem;
+  box-shadow: 0 0 20px rgba(229, 195, 120, 0.5);
+  transition: all 0.3s ease;
+}
+
+.play-btn-circle i {
+  margin-left: 3px;
+}
+
+.video-card:hover .play-btn-circle {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: #FFF;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.card-student-info {
+  padding: 1.1rem 1.25rem;
+  background: var(--bg-card);
+}
+
+.student-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.student-section-sub {
+  font-size: 0.82rem;
+  color: var(--gold-accent);
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   FULLSCREEN VIDEO PLAYER MODAL (CLEAN & DIRECT)
+   ========================================================================== */
+.fullscreen-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(3, 6, 12, 0.96);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.fullscreen-video-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 94vh;
+  max-height: 860px;
+  background: #000;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid rgba(229, 195, 120, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Modal Top Bar */
+.modal-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: rgba(11, 25, 44, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.modal-student-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFF;
+}
+
+.modal-student-sec {
+  font-size: 0.78rem;
+  color: var(--gold-accent);
+}
+
+.modal-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #FFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.modal-action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--gold-glow);
+}
+
+.modal-close-btn:hover {
+  background: rgba(244, 63, 94, 0.7);
+  color: #FFF;
+}
+
+/* Modal Video Viewport */
+.modal-video-container {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* Modal Bottom Bar */
+.modal-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(11, 25, 44, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-counter-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+}
+
+/* Modal Floating Nav Arrows */
+.modal-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(22, 38, 61, 0.8);
+  border: 1px solid rgba(229, 195, 120, 0.3);
+  color: #FFF;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.35rem;
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.modal-nav-btn:hover {
+  background: var(--gold-accent);
+  color: #070D18;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-prev { left: 20px; }
+.nav-next { right: 20px; }
+
+/* Site Footer */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-credit {
+  font-size: 0.95rem;
+  color: var(--gold-accent);
+  margin-bottom: 0.35rem;
+}
+
+.footer-credit strong {
+  color: #FFF;
+}
+
+.footer-sub {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-head-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-pills-group {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+  }
+
+  .modal-content-wrap {
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .modal-nav-btn {
+    display: none;
+  }
+}

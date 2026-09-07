@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Teacher's Day, Dr. Mohammad Faisal Noor | LMTSM</title>
+  <meta name="description" content="Teacher's Day video wishes by students for Dr. Mohammad Faisal Noor, Assistant Professor (Operations & Quantitative Techniques), LM Thapar School of Management." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/lmtsm-logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glowing Background -->
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-notice-bar">
+    <span>🎓 <strong>LM Thapar School of Management</strong> &bull; Teacher's Day Wishes for Dr. Mohammad Faisal Noor</span>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="site-nav">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <div class="nav-logo-box">
+          <img src="assets/images/lmtsm-logo.png" alt="LMTSM Logo" class="nav-logo-img" onerror="this.src='https://lmtsm.thapar.edu/public/ft_assests/images/lmtsm-logo.png'" />
+        </div>
+        <div class="nav-titles">
+          <span class="brand-main">Dr. Mohammad Faisal Noor</span>
+          <span class="brand-sub">LM Thapar School of Management</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary" onclick="openFullscreenReel(0)">
+          <i class="fa-solid fa-play"></i>
+          <span>Play All Wishes</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Simple & Elegant Hero Section for Sir -->
+    <section class="hero-section">
+      <div class="container">
+        
+        <div class="hero-center-box">
+          <div class="sir-photo-frame">
+            <img 
+              src="assets/images/dr-mohammad-faisal-noor.jpg" 
+              alt="Dr. Mohammad Faisal Noor" 
+              class="sir-img"
+              onerror="this.src='https://lmtsm.thapar.edu/public/assets/uploads/Mohammad-Faisal-Noor_4367.jpg'"
+            />
+          </div>
+
+          <h1 class="hero-title">Happy Teacher's Day, <span class="highlight-gold">Dr. Mohammad Faisal Noor Sir!</span></h1>
+          <p class="sir-role">Assistant Professor (Operations &amp; Quantitative Techniques) &bull; LMTSM</p>
+          <p class="hero-tagline">
+            Heartfelt video messages and wishes from your students for Quantitative Techniques for Management (QTM).
+          </p>
+
+          <div class="faculty-badges-row">
+            <span class="faculty-pill"><i class="fa-solid fa-graduation-cap"></i> Ph.D., NIT Jamshedpur</span>
+            <span class="faculty-pill"><i class="fa-solid fa-chart-line"></i> Quantitative Techniques &bull; Operations</span>
+            <a href="https://lmtsm.thapar.edu/faculty/directory/17" target="_blank" rel="noopener noreferrer" class="faculty-pill">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> LMTSM Directory
+            </a>
+          </div>
+
+          <div class="editor-credit-badge">
+            <i class="fa-solid fa-clapperboard"></i>
+            <span>Edited &amp; Compiled by <strong>Gaurav Dhiman</strong> (Section D)</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Student Video Wishes Section -->
+    <section class="videos-section">
+      <div class="container">
+        
+        <div class="section-head-bar">
+          <div class="section-titles">
+            <h2 class="section-heading">Student Video Wishes</h2>
+            <p class="section-sub">Click on any video to watch in full screen.</p>
+          </div>
+
+          <!-- Section Filter Tabs -->
+          <div class="filter-pills-group">
+            <button class="filter-btn active" data-filter="all">
+              <span>All</span>
+              <span class="filter-count">5</span>
+            </button>
+            <button class="filter-btn" data-filter="d">
+              <span>Section D</span>
+              <span class="filter-count">4</span>
+            </button>
+            <button class="filter-btn" data-filter="c">
+              <span>Section C</span>
+              <span class="filter-count">1</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Video Cards Grid -->
+        <div class="video-cards-grid" id="video-cards-grid">
+          <!-- Populated dynamically by app.js (Pallavi Chaudhary first) -->
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Video Player Modal (Direct Playback) -->
+  <div class="fullscreen-video-modal" id="fullscreen-video-modal" role="dialog" aria-modal="true">
+    
+    <!-- Previous & Next Navigation Controls -->
+    <button class="modal-nav-btn nav-prev" onclick="prevVideo()" title="Previous Video (Left Arrow)">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="modal-nav-btn nav-next" onclick="nextVideo()" title="Next Video (Right Arrow)">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="modal-content-wrap">
+      
+      <!-- Modal Top Bar -->
+      <div class="modal-top-bar">
+        <div class="modal-student-meta">
+          <span class="modal-student-name" id="modal-student-name">Student Name</span>
+          <span class="modal-student-sec" id="modal-student-sec">Section D &bull; Video 1 of 5</span>
+        </div>
+
+        <div class="modal-top-actions">
+          <button class="modal-action-btn" onclick="toggleNativeFullscreen()" title="Native Fullscreen (F)">
+            <i class="fa-solid fa-expand" id="modal-expand-icon"></i>
+          </button>
+          <button class="modal-action-btn modal-close-btn" onclick="closeFullscreenReel()" title="Close (Esc)">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Video Player -->
+      <div class="modal-video-container" onclick="togglePlayPause()">
+        <video 
+          id="modal-video" 
+          class="modal-video-el" 
+          playsinline 
+          controls
+        ></video>
+      </div>
+
+      <!-- Bottom Quick Navigation Bar -->
+      <div class="modal-bottom-bar">
+        <button class="btn btn-glass btn-sm" onclick="prevVideo()">
+          <i class="fa-solid fa-backward-step"></i>
+          <span>Previous</span>
+        </button>
+        <span class="modal-counter-badge" id="modal-counter-badge">1 / 5</span>
+        <button class="btn btn-glass btn-sm" onclick="nextVideo()">
+          <span>Next</span>
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Minimal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-credit">Edited &amp; Compiled by <strong>Gaurav Dhiman</strong> (Section D)</p>
+      <p class="footer-sub">LM Thapar School of Management (LMTSM), Dera Bassi &bull; Teacher's Day Celebration for Dr. Mohammad Faisal Noor</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
