@@ -297,11 +297,48 @@ body {
   color: var(--gold-accent);
 }
 
+.credits-badges-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .credits-badges-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
+.special-effort-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1.15rem;
+  background: rgba(229, 195, 120, 0.16);
+  border: 1px solid rgba(229, 195, 120, 0.55);
+  border-radius: 50px;
+  color: var(--gold-glow);
+  font-size: 0.86rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.special-effort-badge strong {
+  color: #FFF;
+}
+
+.special-effort-badge i {
+  color: var(--gold-accent);
+}
+
 .editor-credit-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  margin-top: 1.25rem;
   padding: 0.45rem 1.15rem;
   background: rgba(128, 0, 32, 0.35);
   border: 1px solid rgba(229, 195, 120, 0.4);
